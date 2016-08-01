@@ -321,12 +321,12 @@ unit.addEventListener("touchmove",function(ev){
 			}
 	nowX=ev.touches[0].clientX-deltaX;
 	if(nowX>0&&!status){
-	ul[next].style.left=nowX+"px";
-	ul[idx].style.left=-windowWidth+nowX+"px";
+	ul[next].style.transform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[idx].style.transform="translateX("+(-windowWidth+nowX)+"px)";
 	}
 	if(nowX<0&&status){
-	ul[next].style.left=windowWidth+now+"px";
-	ul[idx].style.left=nowX+"px";
+	ul[next].style.transform="translateX("+nowX+"px)";
+	ul[idx].style.transform="translateX("+nowX+"px)";
 	}	
 },false)
 unit.addEventListener("touchend",function(ev){
@@ -340,8 +340,8 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(!status&&dispos>0){
 	status=true;
-	ul[next].style.left=windowWidth+"px";
-	ul[idx].style.left="0px";
+	ul[next].style.transform="translateX(0px)";
+	ul[idx].style.transform="translateX(0px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
@@ -349,8 +349,8 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(status&&dispos<0){
 	status=false;
-	ul[idx].style.left=-windowWidth+"px";
-	ul[next].style.left="0px";
+	ul[idx].style.transform="translateX("+(-windowWidth)+"px)";
+	ul[next].style.transform="translateX("+(-windowWidth)+"px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
