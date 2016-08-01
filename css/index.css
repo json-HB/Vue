@@ -433,6 +433,9 @@ section.login{
 .login .shouji p:nth-child(2){
 	border-bottom-width:0px;
 } 
+.login .shouji p:nth-child(2) input{
+	line-height:30px;
+}
 .login .btn-denglu{
 	margin-top: 15px;
 	width:100%;
