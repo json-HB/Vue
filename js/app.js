@@ -321,14 +321,16 @@ unit.addEventListener("touchmove",function(ev){
 			}*/
 	nowX=ev.touches[0].clientX-deltaX;
 	if(nowX>0&&!status){
-	ul[next].style.webKitTransform="translateX("+(-windowWidth+nowX)+"px)";
-	ul[idx].style.webKitTransform="translateX("+(-windowWidth+nowX)+"px)";
-	ul[next].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
-	ul[idx].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
+		//console.log(3)
+	ul[next].style.webkitTransform="translateX("+nowX+"px)";
+	ul[idx].style.webkitTransform="translateX("+nowX+"px)";
+	/*ul[next].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[idx].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";*/
 	}
 	if(nowX<0&&status){
-	ul[next].style.webKitTransform="translateX("+nowX+"px)";
-	ul[idx].style.webKitTransform="translateX("+nowX+"px)";
+	//console.log(nowX,111)
+	ul[next].style.webkitTransform="translateX("+nowX+"px)";
+	ul[idx].style.webkitTransform="translateX("+nowX+"px)";
 	ul[next].style.msTransform="translateX("+nowX+"px)";
 	ul[idx].style.msTransform="translateX("+nowX+"px)";
 	}	
@@ -344,10 +346,11 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(!status&&dispos>0){
 	status=true;
-	ul[next].style.webKitTransform="translateX(0px)";
-	ul[idx].style.webKitTransform="translateX(0px)";
-	ul[next].style.msTransform="translateX(0px)";
-	ul[idx].style.msTransform="translateX(0px)";
+	console.log(1)
+	ul[next].style.left="0px";
+	ul[idx].style.left="0px";
+	ul[next].style.webkitTransform="translateX("+windowWidth+"px)";
+	ul[idx].style.webkitTransform="translateX(0px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
@@ -355,10 +358,11 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(status&&dispos<0){
 	status=false;
-	ul[idx].style.webKitTransform="translateX("+(-windowWidth)+"px)";
-	ul[next].style.webKitTransform="translateX("+(-windowWidth)+"px)";
-	ul[idx].style.msTransform="translateX("+(-windowWidth)+"px)";
-	ul[next].style.msTransform="translateX("+(-windowWidth)+"px)";
+	console.log(2,windowWidth)
+	ul[idx].style.left=-windowWidth+"px";
+	ul[next].style.left=-windowWidth+"px";
+	ul[next].style.webkitTransform="translateX("+windowWidth+"px)";
+	ul[idx].style.webkitTransform="translateX(0px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
