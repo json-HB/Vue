@@ -307,41 +307,47 @@ var idx=0;
 var status=true;
 unit.addEventListener("touchstart",function(ev){
 	//ev.preventDefault();
-	if(ev.touches.length > 1){
+	/*if(ev.touches.length > 1){
 				return;
-			}
+			}*/
 	deltaX=ev.touches[0].clientX;
 	ul[idx].style.transition="none";
 	ul[next].style.transition="none";
 },false)
 unit.addEventListener("touchmove",function(ev){
 	//ev.preventDefault();
-	if(ev.touches.length > 1){
+	/*if(ev.touches.length > 1){
 				return;
-			}
+			}*/
 	nowX=ev.touches[0].clientX-deltaX;
 	if(nowX>0&&!status){
-	ul[next].style.transform="translateX("+(-windowWidth+nowX)+"px)";
-	ul[idx].style.transform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[next].style.webKitTransform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[idx].style.webKitTransform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[next].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
+	ul[idx].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
 	}
 	if(nowX<0&&status){
-	ul[next].style.transform="translateX("+nowX+"px)";
-	ul[idx].style.transform="translateX("+nowX+"px)";
+	ul[next].style.webKitTransform="translateX("+nowX+"px)";
+	ul[idx].style.webKitTransform="translateX("+nowX+"px)";
+	ul[next].style.msTransform="translateX("+nowX+"px)";
+	ul[idx].style.msTransform="translateX("+nowX+"px)";
 	}	
 },false)
 unit.addEventListener("touchend",function(ev){
 	//ev.preventDefault();
 	var dispos=ev.changedTouches[0].clientX-deltaX;
-	if(ev.touches.length > 1){
+	/*if(ev.touches.length > 1){
 				return;
-			}
+			}*/
 	for(var i=0;i<ul.length;i++){
 		ul[i].style.transition="all 0.3s ease 0s";
 	}
 	if(!status&&dispos>0){
 	status=true;
-	ul[next].style.transform="translateX(0px)";
-	ul[idx].style.transform="translateX(0px)";
+	ul[next].style.webKitTransform="translateX(0px)";
+	ul[idx].style.webKitTransform="translateX(0px)";
+	ul[next].style.msTransform="translateX(0px)";
+	ul[idx].style.msTransform="translateX(0px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
@@ -349,8 +355,10 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(status&&dispos<0){
 	status=false;
-	ul[idx].style.transform="translateX("+(-windowWidth)+"px)";
-	ul[next].style.transform="translateX("+(-windowWidth)+"px)";
+	ul[idx].style.webKitTransform="translateX("+(-windowWidth)+"px)";
+	ul[next].style.webKitTransform="translateX("+(-windowWidth)+"px)";
+	ul[idx].style.msTransform="translateX("+(-windowWidth)+"px)";
+	ul[next].style.msTransform="translateX("+(-windowWidth)+"px)";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
