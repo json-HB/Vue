@@ -268,6 +268,9 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 	background: #fff;
 	color: #fff;
 }
+.product-page .img-container img{
+	max-width: 100%;
+}
 .product-page .img-container h1,
 .product-page .img-container p {
 	position: absolute;
