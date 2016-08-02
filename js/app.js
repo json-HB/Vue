@@ -295,7 +295,7 @@ window.addEventListener('load', route)
 //触摸事件
 function bindEnent(){
 var unit=document.getElementById("typeContanin");
-var ul=unit.getElementsByTagName("ul");
+var move=document.getElementById("unit");
 var span=document.querySelectorAll(".twoBtn span");
 
 			//屏幕的宽度
@@ -307,50 +307,41 @@ var idx=0;
 var status=true;
 unit.addEventListener("touchstart",function(ev){
 	//ev.preventDefault();
-	/*if(ev.touches.length > 1){
+	if(ev.touches.length > 1){
 				return;
-			}*/
+			}
 	deltaX=ev.touches[0].clientX;
-	ul[idx].style.transition="none";
-	ul[next].style.transition="none";
+	move.style.transition="none";
 },false)
 unit.addEventListener("touchmove",function(ev){
 	//ev.preventDefault();
-	/*if(ev.touches.length > 1){
+	if(ev.touches.length > 1){
 				return;
-			}*/
+			}
 	nowX=ev.touches[0].clientX-deltaX;
 	if(nowX>0&&!status){
-		//console.log(3)
-	ul[next].style.webkitTransform="translateX("+nowX+"px)";
-	ul[idx].style.webkitTransform="translateX("+nowX+"px)";
-	/*ul[next].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";
-	ul[idx].style.msTransform="translateX("+(-windowWidth+nowX)+"px)";*/
+		
+		move.style.left=(-windowWidth+nowX)+"px";
 	}
 	if(nowX<0&&status){
-	//console.log(nowX,111)
-	ul[next].style.webkitTransform="translateX("+nowX+"px)";
-	ul[idx].style.webkitTransform="translateX("+nowX+"px)";
-	ul[next].style.msTransform="translateX("+nowX+"px)";
-	ul[idx].style.msTransform="translateX("+nowX+"px)";
+	
+		move.style.left=nowX+"px";
 	}	
 },false)
 unit.addEventListener("touchend",function(ev){
 	//ev.preventDefault();
 	var dispos=ev.changedTouches[0].clientX-deltaX;
-	/*if(ev.touches.length > 1){
+	if(ev.touches.length > 1){
 				return;
-			}*/
-	for(var i=0;i<ul.length;i++){
-		ul[i].style.transition="all 0.3s ease 0s";
-	}
+			}
+	
+		move.style.transition="all 0.3s ease 0s";
+	
 	if(!status&&dispos>0){
 	status=true;
-	console.log(1)
-	ul[next].style.left="0px";
-	ul[idx].style.left="0px";
-	ul[next].style.webkitTransform="translateX("+windowWidth+"px)";
-	ul[idx].style.webkitTransform="translateX(0px)";
+	
+	move.style.left="0px";
+	
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
@@ -358,11 +349,8 @@ unit.addEventListener("touchend",function(ev){
 	}
 	if(status&&dispos<0){
 	status=false;
-	console.log(2,windowWidth)
-	ul[idx].style.left=-windowWidth+"px";
-	ul[next].style.left=-windowWidth+"px";
-	ul[next].style.webkitTransform="translateX("+windowWidth+"px)";
-	ul[idx].style.webkitTransform="translateX(0px)";
+	
+	move.style.left=-windowWidth+"px";
 	for(var i=0;i<span.length;i++){
 		span[i].className="";
 	}
