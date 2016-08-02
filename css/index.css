@@ -69,6 +69,13 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 	position:relative; 
 	overflow: hidden;
 }
+.home-page .typeContanin .unit{
+	width:100%;
+	height:206px;
+	position: relative;
+	left:0px;
+	top:0px;
+}
 .home-page .typeContanin ul{
 	height: 206px;
 }
@@ -96,9 +103,6 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 .home-page .types {
 	background: #fff;
  	padding-top: 20px;
- 	position: absolute;
- 	left:0px;
- 	top:0px;
  	width:100%;
 }
 .home-page .types li {
@@ -126,6 +130,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 .home-page .types1{
 	width:100%;
 	position: absolute;
+	top:0;
 	left:100%;
 }
 .home-page .ad {
@@ -268,9 +273,6 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 	position: relative;
 	background: #fff;
 	color: #fff;
-}
-.product-page .img-container img{
-	max-width: 100%;
 }
 .product-page .img-container h1,
 .product-page .img-container p {
@@ -434,9 +436,6 @@ section.login{
 .login .shouji p:nth-child(2){
 	border-bottom-width:0px;
 } 
-.login .shouji p:nth-child(2) input{
-	line-height:30px;
-}
 .login .btn-denglu{
 	margin-top: 15px;
 	width:100%;
